@@ -1,7 +1,9 @@
-#include "pico/stdlib.h"
 
 #ifndef RP2040_DS3231_HPP
 #define RP2040_DS3231_hpp
+
+#include "pico/stdlib.h"
+#include "hardware/i2c.h"
 
 
 #define Addr_Seconds    0x00    // seconds address

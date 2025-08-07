@@ -1,5 +1,3 @@
-#include "pico/stdlib.h"
-#include "hardware/i2c.h"
 #include "RP2040_DS3231.hpp"
 
 /**
