@@ -548,7 +548,7 @@ uint8_t DS_3231::read_byte(uint8_t location){
     uint8_t data_required = 0;
     #ifdef I2C1
     i2c_write_blocking(i2c1,DS3231_adddr,&location,1,true);
-    i2c_read_blocking(i2c0,DS3231_adddr,&data_required,1,false);
+    i2c_read_blocking(i2c1,DS3231_adddr,&data_required,1,false);
     #else
     i2c_write_blocking(i2c0,DS3231_adddr,&location,1,true);
     i2c_read_blocking(i2c0,DS3231_adddr,&data_required,1,false);
@@ -565,7 +565,7 @@ uint8_t DS_3231::read_byte(uint8_t location){
  void DS_3231::write_byte(uint8_t data, uint8_t location){
     #ifdef I2C1
     i2c_write_blocking(i2c1,DS3231_adddr,&location,1,true);
-    i2c_write_blocking(i2c0,DS3231_adddr,&data,1,false);
+    i2c_write_blocking(i2c1,DS3231_adddr,&data,1,false);
     #else
     i2c_write_blocking(i2c0,DS3231_adddr,&location,1,true);
     i2c_write_blocking(i2c0,DS3231_adddr,&data,1,false);
@@ -582,7 +582,7 @@ uint8_t DS_3231::read_byte(uint8_t location){
  void DS_3231::write_array(uint8_t *data, uint8_t start_location,size_t data_size){
     #ifdef I2C1
     i2c_write_blocking(i2c1,DS3231_adddr,&start_location,(sizeof(start_location)/sizeof(uint8_t)),true);
-    i2c_write_blocking(i2c0,DS3231_adddr,&data,data_size,false);
+    i2c_write_blocking(i2c1,DS3231_adddr,&data,data_size,false);
     #else
     i2c_write_blocking(i2c0,DS3231_adddr,&start_location,(sizeof(start_location)/sizeof(uint8_t)),true);
     i2c_write_blocking(i2c0,DS3231_adddr,data,(data_size/sizeof(uint8_t)),false);
@@ -606,6 +606,7 @@ unsigned int DS_3231::bcd_to_binary(unsigned int bcd) {
     }
 
 }
+
 
 
 
