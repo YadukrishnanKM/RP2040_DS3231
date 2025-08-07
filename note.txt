@@ -1,4 +1,0 @@
-general_purpose_memory_location -> 5bytes long
-
-
-[Alarm 1, Alaram_2,conntrol_status,control,temp]
